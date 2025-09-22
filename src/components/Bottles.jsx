@@ -8,13 +8,18 @@ const Bottles = ({bottlesPromise}) => {
     const bottles = use(bottlesPromise)
 
     const handleAddToCart = (bottle)=>{
-        console.log(bottle);
+        const newCart = [...purchase, bottle]
+        setPurchase(newCart);
+        
         
     }
     // console.log(bottles)
     return (
         <div>
              <h2>Bottles: {bottles.length}</h2>
+             <p>
+                Added to Cart:{purchase.length}
+             </p>
              <div className='bottles-container'>
                 {
                 bottles.map(bottle => <Bottle key={bottle.id} bottle={bottle} handleAddToCart={handleAddToCart}></Bottle>)
